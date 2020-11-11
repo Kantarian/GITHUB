@@ -1,3 +1,8 @@
+#11. Write a script to remove duplicates from Dictionary.
+
+
+
+
 student_data = {'id1': 
    {'name': ['Sara'], 
     'class': ['V'], 

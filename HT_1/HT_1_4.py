@@ -1,3 +1,4 @@
+#4. Write a script to concatenate N strings.
 strings = []
 string = input(str("Please write Start for enter your string: "))
 while string != "" or string != " ":

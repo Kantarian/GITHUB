@@ -10,5 +10,4 @@ b = int(input('Input end range of year:'))
 for i in range(a,b+1):
     if not i % 4 and i % 100 or not i % 400: 
         print(i)
-    else:
-        pass
+ 

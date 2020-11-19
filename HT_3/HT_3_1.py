@@ -3,7 +3,7 @@
 
 def square (num):
 
-    return (4*num, num**2, (2*num**2)**.5)
+    return (4*num, num**2, (2*num**2)**0.5)
 
  
 

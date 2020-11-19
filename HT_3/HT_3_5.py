@@ -4,15 +4,18 @@
 
 
 def fibonacci(n):
-	num = n + 1
+	num = n + 2
 	a = 0
 	b = 1
-	f_list =[]
-	if n <= 0:
-		print("Incorrect input")
+	f_list =[0]
+	if n < 0:
+		return print("Incorrect input")
+	elif n == 0:
+		return print(f_list)
 	elif n == 1:
-		f_list.append(1)
+		return print([0,1])	
 	else:
+		f_list = [0,1]
 		for i in range(2,num):
 			c = a + b
 			a = b
@@ -22,5 +25,6 @@ def fibonacci(n):
 		return print(f_list)
 
 
-fibonacci(9)
+fibonacci(1)
+
 

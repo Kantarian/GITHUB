@@ -13,19 +13,25 @@ def name_password (name, password, silent = False):
   name = str(name)
   name_list = ['asd', 'dsa', 'zxc', 'cxz', 'qwe']
   password_list = [1,2,3,4,5]
-  if name in name_list:
+  if silent == True:
+    print('False')
+    return False
+  elif name in name_list:
     if password in password_list:
       for i in range(len(name_list)):
         if name_list[i] == name and password_list[i] == password:
-          return print('True')
+          print('True')
+          return True
         else:
-          return print('False')
+          print('False')
+          return False
     else:
-      return print('False')
-  elif silent == True:
-    return print('False')
+      print('False')
+      return False
+
   else:
-    return print('False')
+    print('False')
+    return False
 
 
 

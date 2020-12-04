@@ -13,27 +13,46 @@ def name_password (name, password, silent = False):
   name = str(name)
   name_list = ['asd', 'dsa', 'zxc', 'cxz', 'qwe']
   password_list = [1,2,3,4,5]
-  if silent == True:
-    print('False')
-    return False
-  elif name in name_list:
-    if password in password_list:
-      for i in range(len(name_list)):
+  status = None
+  if name in name_list:
+    for i in range(len(name_list)):
         if name_list[i] == name and password_list[i] == password:
           print('True')
-          return True
+          status = True
+          break
         else:
-          print('False')
-          return False
-    else:
-      print('False')
-      return False
-
+          print('Password incorrect')
+          status = False
+          break
   else:
-    print('False')
-    return False
+    print ('Users not found')
+    status = False
+  while True:
+    try:
+      if status == False and silent == False:
+        raise Exception
+      if status == False and silent == True:
+        print('False')
+        return (False)
+        break
+      if status == True and silent == True:
+        print('True. Login Successful')
+        return (True)
+        break
+      if status == True and silent == False:
+        print('True Login Successful')
+        return (True)
+        break
+    except Exception as LoginException:
+      print('something went wrong')
+      break      
+    else:
+      break
 
 
 
 
-name_password ('asd',  1)
+
+name_password ('asd', 2, False)
+
+

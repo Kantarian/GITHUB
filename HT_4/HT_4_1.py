@@ -9,6 +9,11 @@
 
 
 
+class LoginException(Exception):
+  pass
+
+
+
 def name_password (name, password, silent = False):
   name = str(name)
   name_list = ['asd', 'dsa', 'zxc', 'cxz', 'qwe']
@@ -30,7 +35,7 @@ def name_password (name, password, silent = False):
   while True:
     try:
       if status == False and silent == False:
-        raise Exception
+        raise LoginException(print('something went wrong'))
       if status == False and silent == True:
         print('False')
         return (False)
@@ -40,11 +45,11 @@ def name_password (name, password, silent = False):
         return (True)
         break
       if status == True and silent == False:
-        print('True Login Successful')
+        print('True. Login Successful')
         return (True)
         break
-    except Exception as LoginException:
-      print('something went wrong')
+    except LoginException:
+      return True
       break      
     else:
       break
@@ -53,6 +58,15 @@ def name_password (name, password, silent = False):
 
 
 
-name_password ('asd', 2, False)
+a = name_password ('asd', 2, True)
+b = name_password ('asd', 2, False)
 
+if a == True:
+  print('True. Login Successful')
+if a == False:
+  print('False. Login unsuccessful')
 
+if b == True:
+  print('True. Login Successful')
+if b == False:
+  print('False. Login unsuccessful')

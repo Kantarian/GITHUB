@@ -4,16 +4,13 @@ from bs4 import BeautifulSoup
 urlst = 'https://quotes.toscrape.com/'
 autor_dict = {}
 responsest = requests.get(urlst)
-
 if responsest.ok:
-    url = 'https://quotes.toscrape.com/page/1/'
-    x = 1
-    while x == 1:
+    url = 'https://quotes.toscrape.com/page/10/'
+    while True:
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml')
         quotes = soup.select('div[class="quote"]')
         if 'Next' in soup.ul.text:
-            x = 1
             next = soup.select('li[class="next"]')
             for na in next:
                 href2 = na.select_one('a').get('href', '')
@@ -37,7 +34,6 @@ if responsest.ok:
                     if author in autor_dict:
                         autor_dict[author]['Things: '].append(text)
         else:
-            x = 0
             for quote in quotes:
                 text = quote.select_one('span[class="text"]').text.strip().replace('“', '').replace('”', '')
                 author = quote.select_one('small[class="author"]').text
@@ -56,6 +52,7 @@ if responsest.ok:
                         autor_dict[author]['Location: '] = location
                 if author in autor_dict:
                     autor_dict[author]['Things: '].append(text)
+            break
     print(autor_dict)
 if __name__ == '__main__':
     pass
